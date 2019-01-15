@@ -11,13 +11,13 @@
     <p>{{appVersion}}</p>
     <p>{{userName}}</p>
 
-    <button @click="updateAppName">修改</button>
+    <button @click="updateAppName1">修改</button>
   </div>
 </template>
 <script>
 import AInput from "_c/AInput.vue";
 import AShow from "_c/AShow.vue";
-import { mapState, mapGetters, mapMutations } from "vuex";
+import { mapState, mapGetters, mapMutations,mapActions } from "vuex";
 export default {
   name: "store",
   components: {
@@ -58,11 +58,13 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_APP_NAME", "SET_USER_NAME"]),
-
-    updateAppName() {
-      this.SET_APP_NAME("newName");
-      this.$store.commit("SET_APP_VERSION");
-      this.SET_USER_NAME("newName111");
+    ...mapActions(['updateAppName']),
+    updateAppName1() {
+      // this.SET_APP_NAME("newName");
+      // this.$store.commit("SET_APP_VERSION");
+      // this.SET_USER_NAME("newName111");
+      // this.updateAppName()
+      this.$store.dispatch('updateAppName')
     }
   }
 };
