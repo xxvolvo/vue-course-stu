@@ -1,7 +1,8 @@
 <template>
   <div>
-    <!-- <a-input v-model="inputValue"/>
-    {{inputValueLasterLetter}}-->
+    <a-input v-model="stateValue"/>
+    {{stateValue}}
+    <!-- {{inputValueLasterLetter}}-->
     <!-- <a-show :content="inputValue"/> -->
     <!-- {{appWithVersion}}
     {{userName}}
@@ -39,8 +40,16 @@ export default {
     ...mapState({
       appName: state => state.appName,
       userName: state => state.user.userName,
-      appVersion: state => state.appVersion
+      appVersion: state => state.appVersion   
     }),
+    stateValue:{
+      get(){
+        return this.$store.state.stateValue
+      },
+      set(value){
+        this.SET_INPUTED_VALUE(value)
+      }
+    },
     inputValueLasterLetter() {
       return this.inputValue.substr(-1, 1);
     },
@@ -57,14 +66,19 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["SET_APP_NAME", "SET_USER_NAME"]),
+    ...mapMutations(["SET_APP_NAME", "SET_USER_NAME","SET_INPUTED_VALUE"]),
     ...mapActions(['updateAppName']),
     updateAppName1() {
       // this.SET_APP_NAME("newName");
       // this.$store.commit("SET_APP_VERSION");
       // this.SET_USER_NAME("newName111");
+
+
       // this.updateAppName()
       this.$store.dispatch('updateAppName')
+    },
+    stateValueChanged(val){
+     this.SET_INPUTED_VALUE(val)
     }
   }
 };
