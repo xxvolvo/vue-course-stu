@@ -22,8 +22,8 @@ export default [
     props: {
 
     },
-    meta:{
-      title:'关于'
+    meta: {
+      title: '关于'
     }
   },
   {
@@ -65,13 +65,22 @@ export default [
   //   }
   // },
   {
+    path: '/store',
+    component: () => import('@/views/store.vue')
+  },
+  {
     path: '/login',
     name: 'login',
     component: () => import('@/views/login.vue')
   },
-  // {
-  //   path: '*',
-  //   component: () => import('@/views/error_404.vue')
-  // }
+  {
+    path:'/email',
+    name:'email',
+    component: () => import('@/views/email.vue')
+  },
+  {
+    path: '*',
+    component: () => import('@/views/error_404.vue')
+  }
 
 ]
