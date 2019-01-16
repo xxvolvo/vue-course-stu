@@ -1,17 +1,20 @@
-const BASE_URL=process.env.NODE_ENV=="production"?"/iview-admin":""
-const path=require('path')
-const resolve=dir=>path.join(__dirname,dir)
+const BASE_URL = process.env.NODE_ENV == "production" ? "/iview-admin" : ""
+const path = require('path')
+const resolve = dir => path.join(__dirname, dir)
 
 
-module.exports={
-  lintOnSave:false,
-  baseUrl:BASE_URL,
-  chainWebpack:config=>{
+module.exports = {
+  lintOnSave: false,
+  chainWebpack: config => {
     config.resolve.alias
-    .set('@',resolve('src'))
-    .set('_c',resolve('src/components'))
+      .set('@', resolve('src'))
+      .set('_c', resolve('src/components'))
   },
   //打包时不生成.map文件
-  productionSourceMap:false
-
+  productionSourceMap: false,
+  //跨域代理
+  devServer: {
+    //
+    // proxy: ""
+  }
 }
