@@ -97,6 +97,10 @@
                 type: String,
                 default: ''
             }
+            /**当默认值为数组或对象时
+             *default:()=>{
+             * return {}||[]           
+             }*/
         },
         watch: {
             endVal(newVal, oldVal) {
