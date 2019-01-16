@@ -84,6 +84,12 @@ export default [
     component: () => import('@/views/count-to.vue')
   },
   {
+    path:'/split-pane',
+    name:'split-pane',
+    component: () => import('@/views/split-pane.vue')
+  },
+
+  {
     path: '*',
     component: () => import('@/views/error_404.vue')
   }
