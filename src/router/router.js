@@ -74,21 +74,25 @@ export default [
     component: () => import('@/views/login.vue')
   },
   {
-    path:'/email',
-    name:'email',
+    path: '/email',
+    name: 'email',
     component: () => import('@/views/email.vue')
   },
   {
-    path:'/count-to',
-    name:'count-to',
+    path: '/count-to',
+    name: 'count-to',
     component: () => import('@/views/count-to.vue')
   },
   {
-    path:'/split-pane',
-    name:'split-pane',
+    path: '/split-pane',
+    name: 'split-pane',
     component: () => import('@/views/split-pane.vue')
   },
-
+  {
+    path: '/render_page',
+    name: 'render_page',
+    component: () => import('@/views/render_page.vue')
+  },
   {
     path: '*',
     component: () => import('@/views/error_404.vue')
