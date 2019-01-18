@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link :to="{name:'home'}">Home</router-link>|
       <router-link :to="{name:'about'}">About</router-link>
     </div>
@@ -8,7 +8,8 @@
       <router-view key="default"/>
       <router-view name="email" key="email"/>
       <router-view name="tel" key="tel"/>
-    </transition-group>
+    </transition-group>-->
+    <router-view/>
   </div>
 </template>
 
@@ -31,6 +32,13 @@ export default {
 
 
 <style lang="less">
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
 .router-enter {
   opacity: 0;
 }
@@ -53,8 +61,9 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+
   color: #2c3e50;
+  height: 100%;
 }
 #nav {
   padding: 30px;
@@ -66,4 +75,5 @@ export default {
     }
   }
 }
+
 </style>

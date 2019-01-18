@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/img/logo.png">
+    <!-- <img alt="Vue logo" src="../assets/img/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <button @click="handleClick('back')">返回上一页</button>
     <button @click="handleClick('push')">下一页</button>
     <button @click="handleClick('replace')">下一页</button>
     {{food}}
-    <button @click="getInfo">请求</button>
+    <button @click="getInfo">请求</button> -->
   </div>
 </template>
 

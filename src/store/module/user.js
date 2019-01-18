@@ -20,7 +20,7 @@ const actions = {
       login({ username, password }).then(res => {
         console.log(res)
         if (res.accessToken) {
-          setToken(res.accessToken)
+          setToken(res.accessToken,res.expireInSeconds)
           resolve()
         }
         else {

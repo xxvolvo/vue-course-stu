@@ -1,16 +1,17 @@
 import Home from '@/views/Home.vue'
+import Layout from '@/views/layout.vue'
 export default [
   {
     path: '/',
     name: 'home',
-    component: Home,
-    props: route => ({
-      food: route.query.food
-    }),
-    beforeEnter: (to, from, next) => {
-      //路由独享守卫钩子
-      next();
-    }
+    component: Layout
+    // props: route => ({
+    //   food: route.query.food
+    // }),
+    // beforeEnter: (to, from, next) => {
+    //   //路由独享守卫钩子
+    //   next();
+    // }
   },
   {
     path: '/about',
@@ -98,6 +99,7 @@ export default [
     name: 'menu_page',
     component: () => import('@/views/menu_page.vue')
   },
+
   {
     path: '*',
     component: () => import('@/views/error_404.vue')
