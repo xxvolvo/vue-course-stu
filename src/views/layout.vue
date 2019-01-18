@@ -1,12 +1,16 @@
 <template>
   <div class="layout-wrapper">
     <Layout class="layout-outer">
-      <Sider collapsible hide-trigger  breakpoint='sm' v-model="collapsibled"></Sider>
+      <Sider collapsible hide-trigger breakpoint="sm" v-model="collapsibled"></Sider>
       <Layout>
         <Header class="header-wrapper">
           <Icon :class="triggerClasses" @click.native="handleCollapsible" type="md-menu" size="32"></Icon>
         </Header>
-        <Content></Content>
+        <Content class="content-con">
+          <Card shadow class="page-card">
+            <router-view />
+          </Card>
+        </Content>
       </Layout>
     </Layout>
   </div>
@@ -42,12 +46,19 @@ export default {
       padding: 0 23px;
       .trigger-icon {
         cursor: pointer;
-        transition: transform .3s ease;
+        transition: transform 0.3s ease;
         &.rotate {
           transform: rotate(90deg);
-          transition: transform .3s ease;
+          transition: transform 0.3s ease;
         }
       }
+    }
+    .content-con {
+      padding: 10px;
+    }
+
+    .page-card {
+      min-height: ~"calc(100vh - 84px)";
     }
   }
 }

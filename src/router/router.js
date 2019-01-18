@@ -4,7 +4,20 @@ export default [
   {
     path: '/',
     name: 'home',
-    component: Layout
+    component: Layout,
+    children: [
+      {
+        path: '/home',
+        component: Home
+        // props: route => ({
+        //   food: route.query.food
+        // }),
+        // beforeEnter: (to, from, next) => {
+        //   //路由独享守卫钩子
+        //   next();
+        // }
+      },
+    ]
     // props: route => ({
     //   food: route.query.food
     // }),
@@ -13,6 +26,7 @@ export default [
     //   next();
     // }
   },
+
   {
     path: '/about',
     name: 'about',

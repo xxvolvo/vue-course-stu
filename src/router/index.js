@@ -29,6 +29,7 @@ router.beforeEach((to, from, next) => {
   }
   else {
     console.log('没token')
+    next()
   }
 })
 

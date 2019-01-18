@@ -6,59 +6,81 @@
     <button @click="handleClick('push')">下一页</button>
     <button @click="handleClick('replace')">下一页</button>
     {{food}}
-    <button @click="getInfo">请求</button> -->
+    <button @click="getInfo">请求</button>-->
+    <Row>
+      <i-col></i-col>
+    </Row>
+    <Row :gutter="10" type='flex'>
+      <i-col span="12"></i-col>
+      <i-col span="12"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col span="4" offset="1"></i-col>
+      <i-col span="4"></i-col>
+      <i-col span="4"></i-col>
+    </Row>
   </div>
 </template>
 
 <script>
-  // @ is an alias to /src
-  import HelloWorld from "@/components/HelloWorld.vue";
-  import axios from 'axios';
-  import { getUserInfo } from '@/api/user'
+// @ is an alias to /src
+import HelloWorld from "@/components/HelloWorld.vue";
+import axios from "axios";
+import { getUserInfo } from "@/api/user";
 
-  export default {
-    name: "home",
-    components: {
-      HelloWorld
+export default {
+  name: "home",
+  components: {
+    HelloWorld
+  },
+  methods: {
+    handleClick(par) {
+      if (par === "back") this.$router.go(-1);
+      //  else if(par==='push') this.$router.push({name:'argu',params:{
+      //    name:'XXX'
+      //  }})
+      else if (par === "push") {
+        const name = "XXX";
+        this.$router.push({ path: `/argu/${name}` }); //ES6模板语法
+      } else if (par === "replace") this.$router.replace({ name: "parent" });
     },
-    methods: {
-      handleClick(par) {
-        if (par === "back") this.$router.go(-1);
-        //  else if(par==='push') this.$router.push({name:'argu',params:{
-        //    name:'XXX'
-        //  }})
-        else if (par === "push") {
-          const name = "XXX";
-          this.$router.push({ path: `/argu/${name}` }); //ES6模板语法
-        } else if (par === "replace") this.$router.replace({ name: "parent" });
-      },
-      getInfo() {
-        getUserInfo().then(res=>{
-           console.log(res)
-        })
-      }
-    },
-    props: {
-      food: {
-        type: String,
-        default: "apple"
-      }
-    },
-    beforeRouteEnter(to, from, next) {
-      //组件钩子
-      next(vm => {
-        //vm-组件内实例
+    getInfo() {
+      getUserInfo().then(res => {
+        console.log(res);
       });
-    },
-    beforeRouteLeave(to, from, next) {
-      next();
-      // next(false) 不跳转
-    },
-    beforeRouteUpdate(to, from, next) {
-      //路由发生变化 组件被复用时调用
-      //例如当前页面参数变化
-      console.log("Update")
-
     }
-  };
+  },
+  props: {
+    food: {
+      type: String,
+      default: "apple"
+    }
+  },
+  beforeRouteEnter(to, from, next) {
+    //组件钩子
+    next(vm => {
+      //vm-组件内实例
+    });
+  },
+  beforeRouteLeave(to, from, next) {
+    next();
+    // next(false) 不跳转
+  },
+  beforeRouteUpdate(to, from, next) {
+    //路由发生变化 组件被复用时调用
+    //例如当前页面参数变化
+    console.log("Update");
+  }
+};
 </script>
+<style lang="less">
+.home {
+  .ivu-col {
+    height: 50px;
+    margin-top: 10px;
+    background: #e4e4e4;
+    background-clip: content-box;
+  }
+}
+</style>
+
