@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import routes from './router'
-import { setTitle } from '@/lib/util'
+import { setTitle, getToken } from '@/lib/util'
+
 
 Vue.use(Router)
 
@@ -9,17 +10,25 @@ const router = new Router({
   routes
   // mode:'history'
 });
-const HAS_LOGINED = true;
+const HAS_LOGINED = false;
 //路由守卫 -前置钩子
 router.beforeEach((to, from, next) => {
   to.meta && setTitle(to.meta.title)//设置title
-  if (to.name !== 'login') {
-    if (HAS_LOGINED) next();
-    else next({ name: 'login' })
-  } else {
+  // if (to.name !== 'login') {
+  //   if (HAS_LOGINED) next();
+  //   else next({ name: 'login' })
+  // } else {
 
-    if (HAS_LOGINED) next({ name: 'home' })
-    else next()
+  //   if (HAS_LOGINED) next({ name: 'home' })
+  //   else next()
+  // }
+  const token = getToken();
+  if (token) {
+    console.log('有token')
+    next()
+  }
+  else {
+    console.log('没token')
   }
 })
 
