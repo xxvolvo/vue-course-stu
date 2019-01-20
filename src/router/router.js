@@ -17,6 +17,10 @@ export default [
         //   next();
         // }
       },
+      {
+        path:'/table',
+        component: () => import('@/views/table.vue'),
+      }
     ]
     // props: route => ({
     //   food: route.query.food
