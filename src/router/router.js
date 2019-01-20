@@ -18,8 +18,12 @@ export default [
         // }
       },
       {
-        path:'/table',
+        path: '/table',
         component: () => import('@/views/table.vue'),
+      },
+      {
+        path: '/folder-tree',
+        component: () => import('@/views/folder-tree.vue')
       }
     ]
     // props: route => ({
