@@ -24,6 +24,10 @@ export default [
       {
         path: '/folder-tree',
         component: () => import('@/views/folder-tree.vue')
+      },
+      {
+        path: '/upload',
+        component: () => import('@/views/upload.vue')
       }
     ]
     // props: route => ({
